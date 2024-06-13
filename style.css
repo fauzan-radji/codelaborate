@@ -1,0 +1,103 @@
+body,
+      body * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        color: black;
+      }
+
+      aside {
+        width: 200px;
+        background-color: #aaa;
+        height: 100%;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      main {
+        width: 100%;
+        height: 100%;
+      }
+
+      form {
+        width: 100%;
+        height: 100%;
+      }
+      .toolbar {
+        display: flex;
+        justify-content: end;
+        padding: 6px;
+        border-bottom: 2px solid #001fff;
+      }
+      .toolbar button {
+        background-color: #39f;
+        border: none;
+        padding-inline: 1em;
+        padding-block: 0.5em;
+        border-radius: 0.2em;
+        color: white;
+        outline: none;
+      }
+      .directories {
+        margin-top: 24px;
+      }
+
+      .directories li {
+        position: relative;
+      }
+
+      .directories li input {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+
+      .newfilename {
+        display: none;
+        padding-block: 0.4em;
+        padding-inline: 0.6em;
+        border-radius: 0.3em;
+        border: none;
+        margin-inline: 0.2em;
+        margin-top: 4px;
+        outline: none;
+      }
+      textarea {
+        width: 100%;
+        padding: 20px;
+        background-color: #222;
+        color: white;
+        outline: none;
+        border: none;
+        height: 100%;
+      }
+
+.file-button, .folder-button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  padding-top: .2em;
+  padding-bottom: .2em;
+}
+
+.file-button:hover, .folder-button summary:hover {
+  background-color: #333;
+  color: white;
+}
+
+.folder-button {
+  
+}

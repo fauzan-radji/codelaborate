@@ -1,0 +1,29 @@
+.context-menu {
+  position: fixed;
+  top: var(--y);
+  left: var(--x);
+  width: 100px;
+  border-radius: 0.5em;
+  overflow: hidden;
+  display: none;
+}
+
+.context-menu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.context-menu li button {
+  padding: 0.5em 1em;
+  border: none;
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+.context-menu li:hover button {
+  background-color: #2a2c31;
+  color: white;
+}
