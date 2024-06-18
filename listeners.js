@@ -1,20 +1,16 @@
-const newFileName = document.getElementById("newfilename");
-newFileName.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    const filename = newFileName.value;
-    newFileName.value = "";
-    newFileName.style.display = "none";
-    write(filename, "").then(() => {
-     fetchingFile("/"+filename);
-     fetchingDir();
-     currentWorkingFile = "/"+filename;
-     document.title = filename;
-    })
-    
-    
+newFileName.addEventListener("keydown", async (e) => {
+  if (e.key !== "Enter") return;
 
-  }
+  const filename = newFileName.value;
+  newFileName.value = "";
+  newFileName.style.display = "none";
+  await write(filename, "");
+  fetchingFile("/" + filename);
+  fetchingDir();
+  currentWorkingFile = "/" + filename;
+  document.title = filename;
 });
+
 document.getElementById("newfilebutton").addEventListener("click", (e) => {
   newFileName.style.display = "block";
 });
@@ -41,8 +37,29 @@ textarea.addEventListener("contextmenu", (event) => {
 addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     hideContextMenu();
-    newFileName.style.display = 'none';
-    const input = document.querySelector('.directories li input');
-    if(input) input.parentNode.removeChild(input);
+    newFileName.style.display = "none";
+    const input = document.querySelector(".directories li input");
+    if (input) input.parentNode.removeChild(input);
   }
+});
+
+sidebar.addEventListener("contextmenu", function (event) {
+  if (this !== event.target) return;
+  showContextMenu(event, [
+    {
+      title: "New folder",
+      action() {
+        newDirectoryNameInput.style.display = "block";
+      },
+    },
+  ]);
+});
+
+newDirectoryNameInput.addEventListener("keydown", async (event) => {
+  if (event.key !== "Enter") return;
+  await newDirectory(newDirectoryNameInput.value);
+  fetchingDir();
+
+  newDirectoryNameInput.value = "";
+  newDirectoryNameInput.style.display = "none";
 });
